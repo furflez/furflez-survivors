@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1svc80xe7dh6"]
+
+[ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_ovpl3"]
+[ext_resource type="AudioStream" uid="uid://dd12pplxlyrpb" path="res://sfx/intro.mp3" id="2_21r6i"]
+[ext_resource type="AudioStream" uid="uid://dumycn4wi6agx" path="res://sfx/choose.mp3" id="3_cabkm"]
+
+[node name="StartMenu" type="CanvasLayer"]
+script = ExtResource("1_ovpl3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_21r6i")
+autoplay = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -108.0
+offset_right = 197.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "FURFLEZ SURVIVORS"
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -29.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Furflez productions 2024"
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -21.5
+offset_right = 85.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "INICIAR JOGO"
+
+[node name="ButtonPressSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cabkm")
+parameters/looping = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://weedqhifyoas"]
+
+[ext_resource type="Script" path="res://scripts/stage_1.gd" id="1_3cbf6"]
+[ext_resource type="PackedScene" uid="uid://d1214hvpawk7b" path="res://scenes/level_upgrade.tscn" id="2_8noav"]
+[ext_resource type="PackedScene" uid="uid://54j3bbksqejk" path="res://scenes/player.tscn" id="3_e87u5"]
+[ext_resource type="PackedScene" uid="uid://c6ksid3xu5bfb" path="res://hud.tscn" id="4_8oh6f"]
+[ext_resource type="AudioStream" uid="uid://d4jxs1lhyphfp" path="res://sfx/bgm.mp3" id="5_8pxw8"]
+
+[sub_resource type="Curve2D" id="Curve2D_60dlu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 162.155, -1.29086, 0, 0, 0, 0, 1368, 0, 0, 0, 0, 0, 1368, 648, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[node name="Stage1" type="Node"]
+script = ExtResource("1_3cbf6")
+
+[node name="LevelUpgrade" parent="." instance=ExtResource("2_8noav")]
+process_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(9.14484e-07, 0.532543, 0.171969, 1)
+
+[node name="Player" parent="." instance=ExtResource("3_e87u5")]
+position = Vector2(145, 162)
+
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(683, 384)
+
+[node name="BulletTimer" type="Timer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("4_8oh6f")]
+
+[node name="StageTimer" type="Timer" parent="."]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_60dlu")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+rotation = -0.00796049
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("5_8pxw8")
+volume_db = -8.577
+autoplay = true
+parameters/looping = true
+
+[connection signal="levelUp" from="." to="." method="_on_level_up"]
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="timeout" from="StageTimer" to="." method="_on_stage_timer_timeout"]

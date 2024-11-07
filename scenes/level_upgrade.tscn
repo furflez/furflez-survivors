@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1214hvpawk7b"]
+
+[ext_resource type="Script" path="res://scripts/level_upgrade.gd" id="1_lgi6r"]
+[ext_resource type="AudioStream" uid="uid://dgsd8l2eedk4" path="res://sfx/levelup.mp3" id="2_jqs6s"]
+[ext_resource type="AudioStream" uid="uid://dumycn4wi6agx" path="res://sfx/choose.mp3" id="3_81pup"]
+
+[node name="LevelUpgrade" type="CanvasLayer"]
+script = ExtResource("1_lgi6r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.627451, 0.580392, 0, 0.203922)
+
+[node name="Button1" type="Button" parent="."]
+offset_left = 93.0
+offset_top = 221.0
+offset_right = 286.0
+offset_bottom = 384.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Aumentar a quantidade 
+de balas"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 338.0
+offset_top = 221.0
+offset_right = 531.0
+offset_bottom = 384.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Aumentar a velocidade
+de balas"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 593.0
+offset_top = 220.0
+offset_right = 786.0
+offset_bottom = 383.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Aumentar o tamanho 
+das balas"
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 849.0
+offset_top = 218.0
+offset_right = 1042.0
+offset_bottom = 381.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Aumentar a frequencia 
+das balas"
+
+[node name="LevelUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_jqs6s")
+
+[node name="ChooseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_81pup")
+
+[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]

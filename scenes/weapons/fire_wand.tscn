@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://0h2tcyevjc61"]
+
+[ext_resource type="Script" path="res://scripts/weapons/fire_wand.gd" id="1_ekepi"]
+[ext_resource type="PackedScene" uid="uid://hsunpxnjsl3y" path="res://scenes/bullets/bullet.tscn" id="2_vgqnm"]
+[ext_resource type="AudioStream" uid="uid://bsjmwudp124gy" path="res://sfx/cast.mp3" id="3_6tfab"]
+
+[node name="FireWand" type="Node"]
+script = ExtResource("1_ekepi")
+Bullet = ExtResource("2_vgqnm")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CastSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6tfab")
+volume_db = -9.0

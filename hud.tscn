@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6ksid3xu5bfb"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_a3nu2"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_a3nu2")
+
+[node name="ExperienceBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0.992157, 0, 1)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+value = 30.0
+show_percentage = false
+
+[node name="LevelText" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 39.0
+offset_right = 59.0
+offset_bottom = 62.0
+text = "level: 1"
+
+[node name="KillsText" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 62.0
+offset_right = 59.0
+offset_bottom = 85.0
+text = "Kills: 0"
+
+[node name="TimeText" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.03
+offset_left = -20.0
+offset_top = 35.0
+offset_right = 20.0
+offset_bottom = 34.96
+grow_horizontal = 2
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
